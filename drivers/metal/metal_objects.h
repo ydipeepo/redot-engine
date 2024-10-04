@@ -880,7 +880,7 @@ public:
 };
 
 // These functions are used to convert between Objective-C objects and
-// the RIDs used by Godot, respecting automatic reference counting.
+// the RIDs used by Redot, respecting automatic reference counting.
 namespace rid {
 
 // Converts an Objective-C object to a pointer, and incrementing the

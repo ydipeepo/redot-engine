@@ -191,7 +191,7 @@
 int test_main(int argc, char *argv[]) {
 	bool run_tests = true;
 
-	// Convert arguments to Godot's command-line.
+	// Convert arguments to Redot's command-line.
 	List<String> args;
 
 	for (int i = 0; i < argc; i++) {
@@ -230,10 +230,10 @@ int test_main(int argc, char *argv[]) {
 	}
 
 	if (test_args.size() > 0) {
-		// Convert Godot command line arguments back to standard arguments.
+		// Convert Redot command line arguments back to standard arguments.
 		char **doctest_args = new char *[test_args.size()];
 		for (uint32_t x = 0; x < test_args.size(); x++) {
-			// Operation to convert Godot string to non wchar string.
+			// Operation to convert Redot string to non wchar string.
 			CharString cs = test_args[x].utf8();
 			const char *str = cs.get_data();
 			// Allocate the string copy.
@@ -470,4 +470,4 @@ private:
 	}
 };
 
-REGISTER_LISTENER("GodotTestCaseListener", 1, GodotTestCaseListener);
+REGISTER_LISTENER("RedotTestCaseListener", 1, GodotTestCaseListener);

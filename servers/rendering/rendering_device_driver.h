@@ -54,7 +54,7 @@
 
 #include <algorithm>
 
-// This may one day be used in Godot for interoperability between C arrays, Vector and LocalVector.
+// This may one day be used in Redot for interoperability between C arrays, Vector and LocalVector.
 // (See https://github.com/godotengine/godot-proposals/issues/5144.)
 template <typename T>
 class VectorView {

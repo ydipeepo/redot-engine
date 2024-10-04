@@ -763,8 +763,8 @@ const char *EditorAssetLibrary::sort_text[SORT_MAX] = {
 	TTRC("Least Recently Updated"),
 	TTRC("Name (A-Z)"),
 	TTRC("Name (Z-A)"),
-	TTRC("License (A-Z)"), // "cost" stores the SPDX license name in the Godot Asset Library.
-	TTRC("License (Z-A)"), // "cost" stores the SPDX license name in the Godot Asset Library.
+	TTRC("License (A-Z)"), // "cost" stores the SPDX license name in the Redot Asset Library.
+	TTRC("License (Z-A)"), // "cost" stores the SPDX license name in the Redot Asset Library.
 };
 
 const char *EditorAssetLibrary::support_key[SUPPORT_MAX] = {
