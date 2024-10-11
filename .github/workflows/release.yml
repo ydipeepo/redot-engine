@@ -101,7 +101,7 @@ jobs:
       - name: Upload Windows dev artifact
         uses: actions/upload-artifact@v4
         with:
-          name: redot-windows-dev 
+          name: redot-windows-dev
           path: bin
 
   build-windows-template:
