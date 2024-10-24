@@ -210,7 +210,7 @@ def get_version_info(module_version_string="", silent=False):
         "minor": int(version.minor),
         "patch": int(version.patch),
         "status": str(version.status),
-        "status_version": int(version.status_version),
+        "status_version": int(version.status_version if version.status != "stable" else 0),
         "build": str(build_name),
         "module_config": str(version.module_config) + module_version_string,
         "website": str(version.website),

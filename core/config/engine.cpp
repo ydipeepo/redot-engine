@@ -125,8 +125,7 @@ Dictionary Engine::get_version_info() const {
 	dict["hex"] = VERSION_HEX;
 	dict["status"] = VERSION_STATUS;
 	dict["build"] = VERSION_BUILD;
-
-	dict["status_version"] = dict["status"] != "stable" ? VERSION_STATUS_VERSION : 0;
+	dict["status_version"] = VERSION_STATUS_VERSION;
 
 	String hash = String(VERSION_HASH);
 	dict["hash"] = hash.is_empty() ? String("unknown") : hash;
