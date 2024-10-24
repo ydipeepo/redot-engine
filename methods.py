@@ -224,9 +224,16 @@ def get_version_info(module_version_string="", silent=False):
     # For dev snapshots (alpha, beta, RC, etc.) we do not commit status change to Git,
     # so this define provides a way to override it without having to modify the source.
     if os.getenv("GODOT_VERSION_STATUS") is not None:
-        version_info["status"] = str(os.getenv("GODOT_VERSION_STATUS"))
+        version_status_str = str(os.getenv("GODOT_VERSION_STATUS"))
+        if "." in version_status_str:
+            version_status_str = version_status_str.split(".")
+            version_info["status_version"] = int(version_status_str[1])
+            version_status_str = version_status_str[0]
+        version_info["status"] = version_status_str
         if not silent:
-            print(f"Using version status '{version_info['status']}', overriding the original '{version.status}'.")
+            print(
+                f"Using version status '{version_info['status']}.{version_info['status_version']}', overriding the original '{version.status}.{version.status_version}'."
+            )
 
     # Parse Git hash if we're in a Git repo.
     githash = ""
