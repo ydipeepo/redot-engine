@@ -1217,14 +1217,11 @@ void ColorPicker::_hsv_draw(int p_which, Control *c) {
 
 		col.set_hsv(h, 1, 1);
 		if (actual_shape == SHAPE_HSV_WHEEL) {
-			points.resize(4);
-			double h1 = h - (0.5 / 360);
-			double h2 = h + (0.5 / 360);
-			points.set(0, Point2(center.x + (center.x * Math::cos(h1 * Math_TAU)), center.y + (center.y * Math::sin(h1 * Math_TAU))));
-			points.set(1, Point2(center.x + (center.x * Math::cos(h1 * Math_TAU) * 0.84), center.y + (center.y * Math::sin(h1 * Math_TAU) * 0.84)));
-			points.set(2, Point2(center.x + (center.x * Math::cos(h2 * Math_TAU)), center.y + (center.y * Math::sin(h2 * Math_TAU))));
-			points.set(3, Point2(center.x + (center.x * Math::cos(h2 * Math_TAU) * 0.84), center.y + (center.y * Math::sin(h2 * Math_TAU) * 0.84)));
-			c->draw_multiline(points, col.inverted());
+			const real_t near_wheel_radius_multiplier = 0.84;
+			const real_t wheel_radis_center_multipler = near_wheel_radius_multiplier + (1.0 - near_wheel_radius_multiplier) / 2;
+			real_t wheel_x = center.x + (center.x * Math::cos(h * Math_TAU) * wheel_radis_center_multipler) - (theme_cache.wheel_picker_cursor->get_width() / 2);
+			real_t wheel_y = center.y + (center.y * Math::sin(h * Math_TAU) * wheel_radis_center_multipler) - (theme_cache.wheel_picker_cursor->get_height() / 2);
+			c->draw_texture(theme_cache.wheel_picker_cursor, Point2(wheel_x, wheel_y));
 		}
 
 	} else if (p_which == 1) {
@@ -1819,6 +1816,7 @@ void ColorPicker::_bind_methods() {
 	BIND_THEME_ITEM(Theme::DATA_TYPE_ICON, ColorPicker, sample_revert);
 	BIND_THEME_ITEM(Theme::DATA_TYPE_ICON, ColorPicker, overbright_indicator);
 	BIND_THEME_ITEM(Theme::DATA_TYPE_ICON, ColorPicker, picker_cursor);
+	BIND_THEME_ITEM(Theme::DATA_TYPE_ICON, ColorPicker, wheel_picker_cursor);
 	BIND_THEME_ITEM(Theme::DATA_TYPE_ICON, ColorPicker, color_hue);
 	BIND_THEME_ITEM(Theme::DATA_TYPE_ICON, ColorPicker, color_okhsl_hue);
 
