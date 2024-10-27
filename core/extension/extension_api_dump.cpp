@@ -117,6 +117,7 @@ Dictionary GDExtensionAPIDump::generate_extension_api(bool p_include_docs) {
 		header["version_patch"] = 0;
 #endif
 		header["version_status"] = VERSION_STATUS;
+		header["version_status_version"] = VERSION_STATUS_VERSION;
 		header["version_build"] = VERSION_BUILD;
 		header["version_full_name"] = VERSION_FULL_NAME;
 
