@@ -1,5 +1,5 @@
 /**************************************************************************/
-/*  gizmo_3d_helper.h                                                     */
+/*  a_hash_map.cpp                                                        */
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
@@ -30,33 +30,12 @@
 /* SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.                 */
 /**************************************************************************/
 
-#ifndef GIZMO_3D_HELPER_H
-#define GIZMO_3D_HELPER_H
+#include "a_hash_map.h"
+#include "core/variant/variant.h"
 
-#include "core/object/ref_counted.h"
-
-class Camera3D;
-
-class Gizmo3DHelper : public RefCounted {
-	GDCLASS(Gizmo3DHelper, RefCounted);
-
-	int current_handle_id;
-	Variant initial_value;
-	Transform3D initial_transform;
-
-public:
-	void initialize_handle_action(const Variant &p_initial_value, const Transform3D &p_initial_transform);
-	void get_segment(Camera3D *p_camera, const Point2 &p_point, Vector3 *r_segment);
-
-	Vector<Vector3> box_get_handles(const Vector3 &p_box_size);
-	String box_get_handle_name(int p_id) const;
-	void box_set_handle(const Vector3 p_segment[2], int p_id, Vector3 &r_box_size, Vector3 &r_box_position);
-	void box_commit_handle(const String &p_action_name, bool p_cancel, Object *p_position_object, Object *p_size_object = nullptr, const StringName &p_position_property = "global_position", const StringName &p_size_property = "size");
-
-	Vector<Vector3> cylinder_get_handles(real_t p_height, real_t p_radius);
-	String cylinder_get_handle_name(int p_id) const;
-	void cylinder_set_handle(const Vector3 p_segment[2], int p_id, real_t &r_height, real_t &r_radius, Vector3 &r_cylinder_position);
-	void cylinder_commit_handle(int p_id, const String &p_radius_action_name, const String &p_height_action_name, bool p_cancel, Object *p_position_object, Object *p_height_object = nullptr, Object *p_radius_object = nullptr, const StringName &p_position_property = "global_position", const StringName &p_height_property = "height", const StringName &p_radius_property = "radius");
-};
-
-#endif // GIZMO_3D_HELPER_H
+// Explicit instantiation.
+template class AHashMap<int, int>;
+template class AHashMap<String, int>;
+template class AHashMap<StringName, StringName>;
+template class AHashMap<StringName, Variant>;
+template class AHashMap<StringName, int>;
