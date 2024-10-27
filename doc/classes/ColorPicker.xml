@@ -207,5 +207,8 @@
 		<theme_item name="shape_rect_wheel" data_type="icon" type="Texture2D">
 			The icon for rectangular wheel picker shapes.
 		</theme_item>
+		<theme_item name="wheel_picker_cursor" data_type="icon" type="Texture2D">
+			The image displayed over the color wheel (depending on the [member picker_shape] being [constant SHAPE_HSV_WHEEL]), marking the currently selected hue.
+		</theme_item>
 	</theme_items>
 </class>
