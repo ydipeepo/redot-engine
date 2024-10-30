@@ -505,6 +505,7 @@ void ImporterMesh::generate_lods(float p_normal_merge_angle, float p_normal_spli
 					merged_normals_f32.ptr(),
 					sizeof(float) * 3, // Attribute stride
 					normal_weights, 3,
+					nullptr, // Vertex lock
 					index_target,
 					max_mesh_error,
 					simplify_options,

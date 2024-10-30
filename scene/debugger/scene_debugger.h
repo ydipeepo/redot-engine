@@ -160,7 +160,7 @@ private:
 	LiveEditor() {
 		singleton = this;
 		live_edit_root = NodePath("/root");
-	};
+	}
 
 	static LiveEditor *singleton;
 

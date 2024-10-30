@@ -843,7 +843,7 @@ public:
 				if (!enabled)
 					return;
 				[p_enc setStencilFrontReferenceValue:front_reference backReferenceValue:back_reference];
-			};
+			}
 		} stencil;
 
 		struct {
@@ -857,7 +857,7 @@ public:
 				//if (!enabled)
 				//	return;
 				[p_enc setBlendColorRed:r green:g blue:b alpha:a];
-			};
+			}
 		} blend;
 
 		_FORCE_INLINE_ void apply(id<MTLRenderCommandEncoder> __unsafe_unretained p_enc) const {

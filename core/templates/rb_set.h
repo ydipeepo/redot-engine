@@ -78,7 +78,7 @@ public:
 		}
 		const T &get() const {
 			return value;
-		};
+		}
 		Element() {}
 	};
 

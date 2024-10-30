@@ -159,7 +159,7 @@ RendererRD::MaterialStorage::ShaderData *Fog::_create_fog_shader_func() {
 
 RendererRD::MaterialStorage::ShaderData *Fog::_create_fog_shader_funcs() {
 	return Fog::get_singleton()->_create_fog_shader_func();
-};
+}
 
 RendererRD::MaterialStorage::MaterialData *Fog::_create_fog_material_func(FogShaderData *p_shader) {
 	FogMaterialData *material_data = memnew(FogMaterialData);
@@ -170,7 +170,7 @@ RendererRD::MaterialStorage::MaterialData *Fog::_create_fog_material_func(FogSha
 
 RendererRD::MaterialStorage::MaterialData *Fog::_create_fog_material_funcs(RendererRD::MaterialStorage::ShaderData *p_shader) {
 	return Fog::get_singleton()->_create_fog_material_func(static_cast<FogShaderData *>(p_shader));
-};
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 // FOG VOLUMES INSTANCE
