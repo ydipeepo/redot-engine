@@ -1217,11 +1217,15 @@ void ColorPicker::_hsv_draw(int p_which, Control *c) {
 
 		col.set_hsv(h, 1, 1);
 		if (actual_shape == SHAPE_HSV_WHEEL) {
-			const real_t near_wheel_radius_multiplier = 0.84;
+			const real_t near_wheel_radius_multiplier = 0.8375;
 			const real_t wheel_radis_center_multipler = near_wheel_radius_multiplier + (1.0 - near_wheel_radius_multiplier) / 2;
-			real_t wheel_x = center.x + (center.x * Math::cos(h * Math_TAU) * wheel_radis_center_multipler) - (theme_cache.wheel_picker_cursor->get_width() / 2);
-			real_t wheel_y = center.y + (center.y * Math::sin(h * Math_TAU) * wheel_radis_center_multipler) - (theme_cache.wheel_picker_cursor->get_height() / 2);
-			c->draw_texture(theme_cache.wheel_picker_cursor, Point2(wheel_x, wheel_y));
+			real_t wheel_x = center.x + (center.x * Math::cos(h * Math_TAU) * wheel_radis_center_multipler);
+			real_t wheel_y = center.y + (center.y * Math::sin(h * Math_TAU) * wheel_radis_center_multipler);
+			Point2 wheel_picker_pos = Point2(wheel_x, wheel_y);
+
+			c->draw_set_transform(wheel_picker_pos, center.angle_to_point(wheel_picker_pos), Size2(1, 1));
+			c->draw_texture(theme_cache.wheel_picker_cursor, Point2(-theme_cache.wheel_picker_cursor->get_width() / 2, -theme_cache.wheel_picker_cursor->get_height() / 2));
+			c->draw_set_transform(Point2(), 0, Size2(1, 1));
 		}
 
 	} else if (p_which == 1) {
