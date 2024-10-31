@@ -145,6 +145,7 @@ FBXImporterManager::FBXImporterManager() {
 	vb->add_child(memnew(Label(TTR("FBX2glTF is required for importing FBX files if using FBX2glTF.\nAlternatively, you can use ufbx by disabling FBX2glTF.\nPlease download the necessary tool and provide a valid path to the binary:"))));
 	LinkButton *lb = memnew(LinkButton);
 	lb->set_text(TTR("Click this link to download FBX2glTF"));
+	// TODO: Update https://godotengine.org/fbx-import if/when it exists
 	lb->set_uri("https://godotengine.org/fbx-import");
 	vb->add_child(lb);
 
