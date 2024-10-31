@@ -176,13 +176,13 @@ void TileMapPattern::set_size(const Size2i &p_size) {
 
 bool TileMapPattern::is_empty() const {
 	return pattern.is_empty();
-};
+}
 
 void TileMapPattern::clear() {
 	size = Size2i();
 	pattern.clear();
 	emit_changed();
-};
+}
 
 bool TileMapPattern::_set(const StringName &p_name, const Variant &p_value) {
 	if (p_name == "tile_data") {
@@ -573,11 +573,11 @@ void TileSet::set_uv_clipping(bool p_uv_clipping) {
 
 bool TileSet::is_uv_clipping() const {
 	return uv_clipping;
-};
+}
 
 int TileSet::get_occlusion_layers_count() const {
 	return occlusion_layers.size();
-};
+}
 
 void TileSet::add_occlusion_layer(int p_index) {
 	if (p_index < 0) {
@@ -3693,7 +3693,7 @@ Array TileSet::compatibility_tilemap_map(int p_tile_id, Vector2i p_coords, bool 
 			return cannot_convert_array;
 			break;
 	}
-};
+}
 
 #endif // DISABLE_DEPRECATED
 
@@ -4434,7 +4434,7 @@ TileSet *TileSetSource::get_tile_set() const {
 
 void TileSetSource::reset_state() {
 	tile_set = nullptr;
-};
+}
 
 void TileSetSource::_bind_methods() {
 	// Base tiles

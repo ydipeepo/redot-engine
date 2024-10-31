@@ -46,7 +46,7 @@ class NoiseTextureTester : public RefCounted {
 
 public:
 	NoiseTextureTester(const NoiseTexture2D *const p_texture) :
-			texture{ p_texture } {};
+			texture{ p_texture } {}
 
 	Color compute_average_color(const Ref<Image> &p_noise_image) {
 		Color r_avg_color{};

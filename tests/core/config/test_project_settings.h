@@ -42,7 +42,7 @@ class TestProjectSettingsInternalsAccessor {
 public:
 	static String &resource_path() {
 		return ProjectSettings::get_singleton()->resource_path;
-	};
+	}
 };
 
 namespace TestProjectSettings {
