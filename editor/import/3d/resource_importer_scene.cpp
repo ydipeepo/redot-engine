@@ -2569,8 +2569,6 @@ Node *ResourceImporterScene::_generate_meshes(Node *p_node, const Dictionary &p_
 					}
 				}
 
-				src_mesh_node->get_mesh()->optimize_indices_for_cache();
-
 				if (generate_lods) {
 					Array skin_pose_transform_array = _get_skinned_pose_transforms(src_mesh_node);
 					src_mesh_node->get_mesh()->generate_lods(merge_angle, skin_pose_transform_array);
@@ -2579,6 +2577,8 @@ Node *ResourceImporterScene::_generate_meshes(Node *p_node, const Dictionary &p_
 				if (create_shadow_meshes) {
 					src_mesh_node->get_mesh()->create_shadow_mesh();
 				}
+
+				src_mesh_node->get_mesh()->optimize_indices();
 
 				if (!save_to_file.is_empty()) {
 					Ref<Mesh> existing = ResourceCache::get_ref(save_to_file);
