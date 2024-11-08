@@ -115,6 +115,10 @@ const Variant &Array::operator[](int p_idx) const {
 	return _p->array[p_idx];
 }
 
+const Variant* Array::_unsafe_get_address(int p_idx) const {
+	return &_p->array[p_idx];
+}
+
 int Array::size() const {
 	return _p->array.size();
 }

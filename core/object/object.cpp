@@ -745,7 +745,7 @@ Variant Object::callv(const StringName &p_method, const Array &p_args) {
 	if (p_args.size() > 0) {
 		argptrs = (const Variant **)alloca(sizeof(Variant *) * p_args.size());
 		for (int i = 0; i < p_args.size(); i++) {
-			argptrs[i] = &p_args[i];
+			argptrs[i] = p_args._unsafe_get_address(i);
 		}
 	}
 
